@@ -1,11 +1,12 @@
 <div class="container">
 
   <br>
-  <!-- <pre>{{album}}</pre> -->
+  <!-- <pre>{{album}}</pre>
+  <pre>{{album.photos}}</pre> -->
 
 
   <button class="btn btn-warning" ng-click="showAddArea()" ng-show="addImageButton"><i class="fa fa-picture-o"></i> ADD IMAGE</button>
-
+  <br>
   <div ng-show="addImage">
   <div class="alert alert-info">
     <div class="row">
@@ -33,7 +34,7 @@
 
   <div ng-repeat="photo in album.photos track by $index" class="text-center">
     <div class="col-xs-6 col-md-3">
-      <img class="thumbnail" src={{photo.url}} alt="image">
+      <img class="thumbnail" src={{photo.url}} alt="image" width="250" height="250" ng-click="expandImage()">
       <button ng-click="deletePhoto($index)" class="btn btn-danger">DELETE</button>
     </div>
   </div>

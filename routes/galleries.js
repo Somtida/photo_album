@@ -50,7 +50,9 @@ router.put('/addPhoto/:galleriesId',(req,res)=>{
 
 router.route('/:id')
   .get((req,res)=> Gallery.findById(req.params.id, res.handler))
+  // .delete((req,res)=> Gallery.findByIdAndRemove(req.params.id,res.handler))
   .delete((req,res)=> Gallery.findByIdAndRemove(req.params.id,res.handler))
+
   .put((req,res)=> Gallery.findByIdAndUpdate(req.params.id, req.body, {new: true},res.handler));
 
 
