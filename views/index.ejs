@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/js/module.js"></script>
+  <script src="/js/controllers.js"></script>
+  <script src="/js/services.js"></script>
+
+</head>
+<body ng-app='myApp' ng-controller='mainCtrl' class="text-center">
+  <!-- <div class="top">
+
+      <div class="text-center">
+          <a class="fa fa-github social-icon" href="https://github.com/Somtida" target="_blank"></a>
+          <a class="fa fa-twitter social-icon" href="https://twitter.com/AmySkns" target="_blank"></a>
+          <a class="fa fa-linkedin social-icon" href="https://www.linkedin.com/in/somtida-sinkamnoonsak-b40949101" target="_blank"></a>
+          <a class="fa fa-google-plus social-icon" href="mailto:somtida.th@gmail.com" target="_blank"></a>
+      </div>
+
+  </div> -->
+  <div class="container">
+
+    <h1 text-center><%= title %></h1>
+
+    <div class="">
+      <button type="button" class="btn btn-info btn-lg" ui-sref='showall'><i class="fa fa-list"></i> Show All Album</button>
+      <button type="button" class="btn btn-success btn-lg" ui-sref='createAlbum'><i class="fa fa-building-o"></i>  Create Album</button>
+      <button type="button" class="btn btn-primary btn-lg" ui-sref='photos.addPhoto'><i class="fa fa-picture-o"></i>  Add Photo</button>
+    </div>
+    <br>
+
+    <ui-view></ui-view>
+
+
+
+  </div>
+</body>
+</html>

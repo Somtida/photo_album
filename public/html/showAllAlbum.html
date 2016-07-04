@@ -1,0 +1,70 @@
+<div class="container">
+  <br>
+
+  <div></div>
+  <div class="galleryBox" ng-show="showAlbumBox">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col-xs-6 text-center">Gallery Name</th>
+          <th class="col-xs-2 text-center">Photos</th>
+          <th class="col-xs-2 text-center">Created At</th>
+          <th class="col-xs-2 text-center">Option</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="photoGallery in photoGalleries track by $index">
+          <td>{{photoGallery.name}}</td>
+          <td>
+            <!-- <button ng-click="addPhotoToAlbum($index)" class="btn btn-info">open album</button> -->
+            <a ui-sref="addPhotoToAlbum" type="button" class="btn btn-info">open album</a>
+          </td>
+          <td>{{photoGallery.createdAt | date}}</td>
+
+          <td>
+            <button ng-click="editAlbum($index)" class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+            <button ng-click="deleteAlbum($index)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+  </div>
+
+
+  <div class="container" ng-show="editArea">
+      <br>
+
+      <div class="createBox">
+      <div class="alert alert-warning">
+        <div class="row">
+          <div class="col-xs-10 text-left">
+            <span class="fa fa-question-circle"></span>  Edit Album Detail
+          </div>
+          <div class="col-xs-2 text-right">
+            <button ng-click="cancelEdit()" class="btn btn-danger btn-sm text-right"><span class="fa fa-times-circle"> CANCEL</span></button>
+          </div>
+        </div>
+      </div>
+      <div>
+      <form class="form-horizontal" ng-submit="saveEditGallery()">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Gallery Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" ng-model="editGalleryObj.name" required>
+          </div>
+
+        <button class="btn btn-success createButt"><span class="fa fa-send"></span> SAVE</button>
+
+      </div>
+      </form>
+
+    </div>
+  </div>
+
+  </div>
+
+
+</div>

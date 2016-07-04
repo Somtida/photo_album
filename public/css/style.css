@@ -1,0 +1,51 @@
+.top{
+  position: fixed;
+}
+.my, .createButt{
+  margin-top: 20px;
+}
+.roomBox{
+  padding: 15px;
+  border-radius: 5px;
+  display: inline-block;
+  width: 80%;
+  border: 1px solid #000;
+}
+.image{
+  width: 60%;
+  margin-bottom: 25px;
+}
+.myApartment, .myRenter{
+  width: 90%;
+}
+.myShowApartment, .myShowRenter{
+  margin-top: 10px;
+  width: 100%;
+}
+.myShowAll{
+  margin: 0 auto;
+  width: 80%;
+}
+.renterList{
+  border: 1px solid #000;
+}
+/*follow me*/
+.social-icon{
+    padding-top: 6px;
+    font-size: 16px;
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #777;
+    border-radius: 50%;
+    color: #777;
+    margin: 5px;
+    display: block;
+}
+
+a.social-icon:hover, a.social-icon:active, a.social-icon:focus{
+    text-decoration: none;
+    color: #434343;
+    border-color: #434343;
+}
+/*end follow me*/

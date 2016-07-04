@@ -1,0 +1,31 @@
+<div class="container">
+
+  <br>
+
+  <div class="createBox">
+  <div class="alert alert-info">
+    <div class="row">
+      <div class="col-xs-10 text-left">
+        <span class="fa fa-question-circle"></span>  Photo Detail
+      </div>
+      <div class="col-xs-2 text-right">
+        <button ng-click="resetaddPhoArea()" class="btn btn-danger btn-sm text-right"><span class="fa fa-times-circle"></span>  RESET</button>
+      </div>
+    </div>
+  </div>
+  <div>
+  <form class="form-horizontal" ng-submit="addNewPhoto()">
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Image URL</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" ng-model="newImage.image" required>
+      </div>
+
+    <button class="btn btn-success createButt"><span class="fa fa-send"></span> ADD</button>
+  </div>
+  </form>
+
+</div>
+</div>
+
+</div>

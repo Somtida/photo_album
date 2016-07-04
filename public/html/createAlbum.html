@@ -1,0 +1,31 @@
+
+<div class="container myShowAlbum">
+    <br>
+
+    <div class="createBox">
+    <div class="alert alert-success">
+      <div class="row">
+        <div class="col-xs-10 text-left">
+          <span class="fa fa-question-circle"></span>  Album Detail
+        </div>
+        <div class="col-xs-2 text-right">
+          <button ng-click="resetCreateGalArea()" class="btn btn-danger btn-sm text-right"><span class="fa fa-times-circle"></span></button>
+        </div>
+      </div>
+    </div>
+    <div>
+    <form class="form-horizontal" ng-submit="createNewAlbum()">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Album Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="newAlbum.name" required>
+        </div>
+
+      <button class="btn btn-success createButt"><span class="fa fa-send"></span> Create</button>
+    </div>
+    </form>
+
+  </div>
+</div>
+
+</div>

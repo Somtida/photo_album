@@ -1,0 +1,14 @@
+<div class="container">
+  add photo to album
+
+  <div ng-repeat="photo in photos track by $index" class="text-center">
+    <div class="col-xs-6 col-md-3">
+      <img class="thumbnail" src={{photo.image}} alt="image">
+      <button ng-click="addPhotoToAlbum($index)" class="btn btn-success">ADD TO ALBUM</button>
+    </div>
+
+
+</div>
+
+
+</div>
