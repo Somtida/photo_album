@@ -48,28 +48,53 @@ app.controller('createAlbumCtrl', function($scope, Gallery){
   }
 });
 
-app.controller('addPhotoToAlbumCtrl', function($scope, Photo, Gallery){
-  console.log('addPhotoToAlbumCtrl');
+// app.controller('addPhotoToAlbumCtrl', function($scope, Photo, Gallery){
+//   console.log('addPhotoToAlbumCtrl');
+//
+//   $scope.addPhotoToAlbum = (index) => {
+//     console.log("$scope.selectedPhoto: ",$scope.selectedPhoto);
+//     photoId = Photo.photos[index]._id;
+//     console.log("photoId: ",photoId);
+//     console.log("photoId: ",photoId);
+//     Gallery.putPhoto(albumId, photoId)
+//       .then(res=>{
+//         console.log("added");
+//         console.log("res.data: ",res.data);
+//       })
+//       .catch(err=>{
+//         console.log("err: ",err);
+//       })
+//
+//   }
+// });
 
-  $scope.addPhotoToAlbum = (index) => {
-    console.log("$scope.selectedPhoto: ",$scope.selectedPhoto);
-    photoId = Photo.photos[index]._id;
-    console.log("photoId: ",photoId);
-    console.log("photoId: ",photoId);
-    Gallery.putPhoto(albumId, photoId)
-      .then(res=>{
-        console.log("added");
-        console.log("res.data: ",res.data);
-      })
-      .catch(err=>{
-        console.log("err: ",err);
-      })
-
-  }
-});
-
-app.controller('photosCtrl', function($scope, Photo){
+app.controller('photosCtrl', function($scope, Photo, $stateParams, Gallery){
   console.log('photosCtrl');
+  console.log("$stateParams: ",$stateParams);
+  $scope.stateParams = $stateParams;
+  console.log("id:", $stateParams.id);
+
+  Gallery.getById($stateParams.id)
+    .then(res => {
+      console.log("res.data: ",res.data);
+      $scope.album = res.data;
+    })
+    .catch(err => {
+      console.log("err: ",err);
+    })
+
+
+  $scope.addImage = false;
+  $scope.addImageButton = true;
+  $scope.showAddArea = () => {
+    $scope.addImage = true;
+    $scope.addImageButton = false;
+  }
+
+  $scope.closeAddPhoArea = () => {
+    $scope.addImage = false;
+    $scope.addImageButton = true;
+  }
 
   $scope.deletePhoto = (index) => {
     console.log("index: ", index);
@@ -91,11 +116,22 @@ app.controller('photosCtrl', function($scope, Photo){
   }
 
   $scope.addNewPhoto = () => {
+
     console.log("$scope.newImage: ", $scope.newImage);
-    Photo.post($scope.newImage)
-      .then(res => {
+    // Photo.post($scope.newImage)
+    //   .then(res => {
+    //     console.log("added photo");
+    //     $scope.newImage = null;
+    //   })
+    //   .catch(err => {
+    //     console.log("err: ",err);
+    //   })
+    Gallery.putPhoto($stateParams.id, $scope.newImage)
+    .then(res => {
         console.log("added photo");
         $scope.newImage = null;
+        $scope.addImage = false;
+        $scope.addImageButton = true;
       })
       .catch(err => {
         console.log("err: ",err);

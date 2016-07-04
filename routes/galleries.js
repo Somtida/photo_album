@@ -10,12 +10,12 @@ let router = express.Router();
 
 router.route('/')
   .get((req, res)=>{
-    // Gallery.find({})
-    // .populate('photos')
-    // .exec(res.handler)
-    Gallery.find({},(err, galleries)=>{
-      res.status(err ? 400 : 200).send(err || galleries);
-    });
+    Gallery.find({})
+    .populate('photos')
+    .exec(res.handler)
+    // Gallery.find({},(err, galleries)=>{
+    //   res.status(err ? 400 : 200).send(err || galleries);
+    // }
   })
   .post((req, res)=> {
     Gallery.create(req.body, (err)=>{
@@ -30,13 +30,16 @@ router.route('/')
 
   })
 
-  // / PUT /api/galleries/4987554894/addPhoto/7547942734838
-router.put('/:galleriesId/addPhoto/:photoId',(req,res)=>{
+  // / PUT /api/galleries/addPhoto/4987554894/7547942734838
+router.put('/addPhoto/:galleriesId',(req,res)=>{
 
   Gallery.findById(req.params.galleriesId, (err, galleries)=>{
     if(err || !galleries) return res.status(400).send(err || {error: 'Gallery not found'});
 
-    galleries.photos.push(req.params.photoId);
+    let image = {
+      url : req.body.url
+    }
+    galleries.photos.push(image);
     galleries.save((err, savedGallery)=>{
       res.status(err ? 400 : 200).send(err || savedGallery);
     })

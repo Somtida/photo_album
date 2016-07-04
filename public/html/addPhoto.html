@@ -1,31 +1,43 @@
 <div class="container">
 
   <br>
+  <!-- <pre>{{album}}</pre> -->
 
-  <div class="createBox">
+
+  <button class="btn btn-warning" ng-click="showAddArea()" ng-show="addImageButton"><i class="fa fa-picture-o"></i> ADD IMAGE</button>
+
+  <div ng-show="addImage">
   <div class="alert alert-info">
     <div class="row">
       <div class="col-xs-10 text-left">
         <span class="fa fa-question-circle"></span>  Photo Detail
       </div>
       <div class="col-xs-2 text-right">
-        <button ng-click="resetaddPhoArea()" class="btn btn-danger btn-sm text-right"><span class="fa fa-times-circle"></span>  RESET</button>
+        <button ng-click="closeAddPhoArea()" class="btn btn-danger btn-sm text-right"><span class="fa fa-times-circle"></span>  CLOSE</button>
       </div>
     </div>
   </div>
   <div>
-  <form class="form-horizontal" ng-submit="addNewPhoto()">
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Image URL</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" ng-model="newImage.image" required>
-      </div>
+    <form class="form-horizontal" ng-submit="addNewPhoto()">
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Image URL</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="newImage.url" required>
+        </div>
 
-    <button class="btn btn-success createButt"><span class="fa fa-send"></span> ADD</button>
+      <button class="btn btn-success createButt"><span class="fa fa-send"></span> ADD</button>
+    </div>
+    </form>
   </div>
-  </form>
+  </div>
 
-</div>
-</div>
+  <div ng-repeat="photo in album.photos track by $index" class="text-center">
+    <div class="col-xs-6 col-md-3">
+      <img class="thumbnail" src={{photo.url}} alt="image">
+      <button ng-click="deletePhoto($index)" class="btn btn-danger">DELETE</button>
+    </div>
+  </div>
+
+
 
 </div>

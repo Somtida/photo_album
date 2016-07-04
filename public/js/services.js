@@ -6,6 +6,7 @@ app.service('Gallery', function($http){
   this.photoGalleries = [];
 
   this.get = () => $http.get('/api/galleries');
+  this.getById = (id) => $http.get(`/api/galleries/${id}`);
 
   this.post = newGallery => {
     return $http.post('/api/galleries', newGallery);
@@ -13,9 +14,12 @@ app.service('Gallery', function($http){
   this.delete = id => {
     return $http.delete(`/api/galleries/${id}`);
   }
-  this.putPhoto = (id, photoId) => {
-    return $http.put(`/api/galleries/${id}/addPhoto/${renterId}`);
+  this.putPhoto = (id, newImage) => {
+    return $http.put(`/api/galleries/addPhoto/${id}`, newImage);
   }
+  // this.putPhoto = (id, photoId) => {
+  //   return $http.put(`/api/galleries/addPhoto/${id}/${photoId}`);
+  // }
   this.put = (id, newGallery) => {
     return $http.put(`/api/galleries/${id}`, newGallery);
   }

@@ -31,11 +31,11 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'createAlbumCtrl'
     })
 
-    .state('addPhotoToAlbum', {
-      url: '/addPhotoToAlbum',
-      templateUrl: '/html/addPhotoToAlbum.html',
-      controller: 'addPhotoToAlbumCtrl'
-    })
+    // .state('addPhotoToAlbum', {
+    //   url: '/addPhotoToAlbum',
+    //   templateUrl: '/html/addPhotoToAlbum.html',
+    //   controller: 'addPhotoToAlbumCtrl'
+    // })
 
 
     .state('photos', {
@@ -48,10 +48,11 @@ app.config(function($stateProvider, $urlRouterProvider){
       templateUrl: '/html/showAllPhoto.html',
       controller: 'photosCtrl'
     })
-    .state('photos.addPhoto', {
-      url: '/addPhoto',
+    .state('addPhoto', {
+      url: '/addPhoto/:id',
       templateUrl: '/html/addPhoto.html',
-      controller: 'photosCtrl'
+      controller: 'photosCtrl',
+      params: {}
     })
 
 
