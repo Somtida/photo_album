@@ -17,7 +17,8 @@
           <td>{{photoGallery.name}}</td>
           <td>
             <!-- <button ng-click="addPhotoToAlbum($index)" class="btn btn-info">open album</button> -->
-            <a ui-sref="addPhotoToAlbum" type="button" class="btn btn-info">open album</a>
+            <!-- <a ui-sref="addPhotoToAlbum" type="button" class="btn btn-info">open album</a> -->
+            <button type="button" class="btn btn-primary" ui-sref='photos.addPhoto'><i class="fa fa-picture-o"></i>  Add Photo</button>
           </td>
           <td>{{photoGallery.createdAt | date}}</td>
 
