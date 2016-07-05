@@ -56,5 +56,23 @@ router.route('/:id')
   .put((req,res)=> Gallery.findByIdAndUpdate(req.params.id, req.body, {new: true},res.handler));
 
 
+// DELETE /api/galleries/:id/:photoId
+
+  router.delete('/deletePhoto/:galleriesId/:photoId',(req,res)=>{
+
+    Gallery.findById((req.params.galleriesId), (err, galleries)=>{
+      if(err || !galleries) return res.status(400).send(err || {error: 'Album not found'});
+      console.log("galleries.photos: ", galleries.photos);
+
+
+      galleries.photos.id(req.params.photoId).remove();
+
+      console.log("after galleries.photos: ", galleries.photos);
+      galleries.save((err)=>{
+        res.status(err ? 400 : 200).send(err);
+      })
+    })
+
+  })
 
 module.exports = router;

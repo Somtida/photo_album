@@ -15,7 +15,7 @@ app.service('Gallery', function($http){
     return $http.delete(`/api/galleries/${id}`);
   }
   this.deletePhoto = (id, photoId) => {
-    return $http.delete(`/api/galleries/${id}`, photoId);
+    return $http.delete(`/api/galleries/deletePhoto/${id}/${photoId}`);
   }
   this.putPhoto = (id, newImage) => {
     return $http.put(`/api/galleries/addPhoto/${id}`, newImage);

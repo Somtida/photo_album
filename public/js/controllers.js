@@ -81,7 +81,7 @@ app.controller('photosCtrl', function($scope, $stateParams, Gallery){
 
     Gallery.deletePhoto($stateParams.id, photoId)
     .then(res => {
-        console.log("added photo");
+        console.log("deleted photo");
         $scope.newImage = null;
         $scope.addImage = false;
         $scope.addImageButton = true;
@@ -130,8 +130,6 @@ app.controller('showallCtrl', function($scope, Gallery){
   console.log('showallCtrl');
 
 
-
-
   $scope.editArea = false;
   $scope.showAlbumBox = true;
   $scope.myindex;
@@ -149,6 +147,8 @@ app.controller('showallCtrl', function($scope, Gallery){
       })
     // $scope.photoGalleries.splice(index, 1);
     Gallery.photoGalleries.splice(index, 1);
+
+    // render();
   }
 
   $scope.cancelEdit = () => {
